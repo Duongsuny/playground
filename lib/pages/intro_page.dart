@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:playground/pages/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:playground/components/button.dart';
+import 'package:playground/pages/restaurant.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -7,45 +9,44 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: Center(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset("lib/assets/logo.png", height: 240),
-            const SizedBox(height: 30),
-            const Text(
-              "Just Do It",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const Text(
-              "Buy our newest shoes this winter",
-              style: TextStyle(fontSize: 18, color: Colors.grey),
-            ),
-            const SizedBox(height: 100),
-            GestureDetector(
-              onTap: () => {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()))
-              },
-              child: Container(
-                padding: const EdgeInsets.all(20.0),
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10)),
-                child: const Center(
-                  child: Text("Shop Now",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white)),
+        backgroundColor: const Color.fromARGB(248, 109, 29, 29),
+        body: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //title
+                Text("SUSHI SHOP",
+                    style: GoogleFonts.dmSerifDisplay(
+                        color: Colors.white, fontSize: 28)),
+                //image
+                Center(
+                  child: Image.asset(
+                    "lib/assets/bento.png",
+                    height: 300,
+                  ),
                 ),
-              ),
-            )
-          ],
-        ),
-      )),
-    );
+                //title
+                Column(children: [
+                  Text("BEHOLD OUR PRESTIGIOUS RESTAURANT IN TOWN",
+                      style: GoogleFonts.dmSerifDisplay(
+                          color: Colors.white, fontSize: 29)),
+                  const SizedBox(height: 20),
+                  //description
+                  const Text(
+                    "Where culinary artistry meets the delicate flavors of Japan. Immerse yourself in a Japanese dining experience.",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  )
+                ]),
+                //button
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Restaurant()));
+                  },
+                  child: SushiButton(text: "Discover now ", height: 60, icon: Icons.arrow_right_alt),
+                  )
+              ]),
+        ));
   }
 }
