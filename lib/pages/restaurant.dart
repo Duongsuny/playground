@@ -3,6 +3,7 @@ import "package:google_fonts/google_fonts.dart";
 import "package:playground/components/button.dart";
 import "package:playground/components/dish_tile.dart";
 import "package:playground/model/dish.dart";
+import "package:playground/pages/cart_page.dart";
 import "package:playground/pages/description.dart";
 
 class Restaurant extends StatelessWidget {
@@ -22,6 +23,15 @@ class Restaurant extends StatelessWidget {
             "Jakarta",
             textAlign: TextAlign.center,
           ),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
+              },
+              child: const Icon(Icons.shop)
+            ),
+            const SizedBox(width: 10),
+          ],
           automaticallyImplyLeading: false,
           centerTitle: true,
         ),
