@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:playground/model/cart.dart';
-import 'package:playground/pages/intro_page.dart';
-import 'package:provider/provider.dart';
+import 'package:playground/pages/air_quality_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Cart(),
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: IntroPage(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AirQualityPage(),
     );
   }
 }
